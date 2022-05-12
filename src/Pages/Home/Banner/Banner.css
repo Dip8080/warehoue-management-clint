@@ -1,0 +1,19 @@
+.parent_banner{
+    display: flex;
+}
+
+.child-left{
+    width: 60%;
+    background-color: aqua;
+
+}
+
+.child-right{
+    width: 40%;
+    padding: 20px;
+
+}
+.child-right img{
+    width: 80%;
+    height: 80%;
+}

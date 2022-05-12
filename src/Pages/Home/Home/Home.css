@@ -1,0 +1,12 @@
+.brands_img{
+    width: 100%;
+    margin:auto;
+    box-shadow: 1px 1px 1px 1px;
+    
+}
+.brands_img img{
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+   
+}
