@@ -26,7 +26,7 @@ const SingleService = (props)=>{
     const {name , quantity , supplier , price , img ,description} = props.obj;
     return (
 
-        <div className="card" >
+        <div className="card" id='services'>
         <img src={img} className="card-img-top" alt="..."></img>
         <div className="card-body">
           <h5 className="card-title">Name : {name}</h5>
