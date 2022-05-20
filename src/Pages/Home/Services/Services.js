@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UseServices from '../../Hooks/UseServices';
 import './Services.css'
 
 const Services = () => {
-    const [fruits , setFruits] = useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:5000/fruits')
-        .then(res=>res.json())
-        .then(data=>setFruits(data))
-    },[])
+    const [fruits]= UseServices([]);
+   
     return (
         
         <div className='container'>
@@ -16,7 +13,7 @@ const Services = () => {
             <div className='parent'>
             
             {
-                fruits.map(x=><SingleService key={x._id} obj={x}></SingleService>)
+                fruits.slice(0,6).map(x=><SingleService key={x._id} obj={x}></SingleService>)
             }
             </div>
         </div>

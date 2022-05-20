@@ -6,10 +6,14 @@ import Error from './Pages/Error/Error';
 import Footer from './Pages/Footer/Footer';
 import Header from './Pages/Header/Header';
 import Home from './Pages/Home/Home/Home';
+import ServiceDetails from './Pages/Home/Services/ServiceDetails/ServiceDetails';
 import Login from './Pages/Login/Login';
+import ManageInventory from './Pages/ManageInventory/ManageInventory';
+import NewItem from './Pages/NewItem/NewItem';
 
 import ProductInfo from './Pages/ProductInfo/ProductInfo';
 import Registration from './Pages/Regintratrion/Registration';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
 
 
 function App() {
@@ -19,7 +23,21 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
-        <Route path='/service/:userId' element={<ProductInfo></ProductInfo>}></Route>
+        <Route path='/service/:userId' element={
+          <RequireAuth>
+            <ProductInfo></ProductInfo>
+            </RequireAuth>
+        }></Route>
+        <Route path='/manage' element={
+          <RequireAuth>
+            <ManageInventory></ManageInventory>
+            </RequireAuth>
+        }></Route>
+        <Route path='/additem' element={
+          <RequireAuth>
+            <NewItem></NewItem>
+            </RequireAuth>
+        }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Registration></Registration>}></Route>
         <Route path='*' element={<Error></Error>}></Route>
