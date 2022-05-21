@@ -1,0 +1,7 @@
+.product_parent{
+    box-shadow: 6px 6px 8px #cbced1, -4px -4px 8px white;  
+    padding : 20px
+}
+.product_parent img {
+    width: 30%;
+}

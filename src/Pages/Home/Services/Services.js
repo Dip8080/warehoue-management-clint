@@ -28,7 +28,7 @@ const SingleService = (props)=>{
     }
     return (
 
-        <div className="card" id='services'>
+        <div className="card border-0 card-container" id='services'>
         <img src={img} className="card-img-top" alt="..."></img>
         <div className="card-body">
           <h5 className="card-title">Name : {name}</h5>
@@ -36,7 +36,7 @@ const SingleService = (props)=>{
           <h5 className="card-title">Price : {price}/kg</h5>
           <h5 className="card-title">stock : {quantity} kg</h5>
           <p className="card-text">Description : {description}</p>
-          <button onClick={()=>nevigaHandle(_id)}  className="btn btn-primary flex justify-certer">Manage Item</button>
+         < div className='d-flex justify-center'><div onClick={()=>nevigaHandle(_id)}  className="btn glow-on-hover flex justify-certer">Manage Item</div></div> 
         </div>
       </div>
     )

@@ -1,8 +1,9 @@
+import './Login.css'
 import { Button } from 'react-bootstrap';
-import React, { useRef } from 'react';
+import  { useRef } from 'react';
 import { Form } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword,useSignInWithGoogle} from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
@@ -42,30 +43,19 @@ const Login = () => {
     if(user){
         nevigate(from, { replace: true });
     }
-    if (error) {
-        return (
-          <div>
-            <p>Error: {error.message}</p>
-          </div>
-        );
-      }
+  
 
-      if(loading){
-          return (
-              <><p>loading...</p></>
-          )
-      }
-
+    
     const nevigateRegister = event =>{
         nevigate('/register')
     }
     return (
         <>
-        <h1 className='text-center'>what the fuck</h1>
-                    <Form className='container w-50 mx-auto my-5' onClick={handlesubmit}>
+      <h1 className='text-center'>Please Log in</h1>
+                    <Form className='container w-50 mx-auto my-5 card-container p-2 col-sm-6' onClick={handlesubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
-    <Form.Control ref={emailRef} className='bg-success font-light' type="email" placeholder="Enter email" required/>
+    <Form.Control className="input-sec col-sm-12" ref={emailRef} type="email" placeholder="email address" required/>
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -73,18 +63,19 @@ const Login = () => {
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control ref={passRef} type="password" placeholder="Password" required/>
+    <Form.Control className="input-sec" ref={passRef} type="password" placeholder="Password" required/>
   </Form.Group>
   {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out"/>
   </Form.Group> */}
-  <Button variant="primary" type="submit">
+  <Button className="button_submit" variant="primary" type="submit">
     Submit
   </Button>
-  <p >new here ? <span className='bg-danger' onClick={nevigateRegister}>please register</span></p>
+  <p  className=' w-50 my-4'>new here ? <span className='bg-danger button_submit' onClick={nevigateRegister}>please register</span></p>
+  <button className='button_submit my-3'  onClick={handleGoogle}>sign in with google</button>
 </Form>
 
-<button onClick={handleGoogle}>sign in with google</button>
+
 
 </>
 

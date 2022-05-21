@@ -1,19 +1,131 @@
 .parent_banner{
     display: flex;
+    background-image: url('https://img.freepik.com/free-vector/juice-spray-fruit-illustration_1284-56500.jpg?t=st=1653037430~exp=1653038030~hmac=36dc9ea117d391b2dd4c90829c636bade77297293b8ab24c1c2826da0e9a078b&w=996');
+    background-repeat: no-repeat;
+    filter: blur(2px);
+    -webkit-filter: blur(.1px);
+    
 }
 
 .child-left{
     width: 60%;
-    background-color: aqua;
+    background-color: rgb(222, 231, 231,.01);
+    height: 30%;
+    font-weight: normal;
+    
+    
 
 }
 
-.child-right{
-    width: 40%;
-    padding: 20px;
+/* .child-right{
+   
+    margin-left:7px;
+   
 
 }
 .child-right img{
     width: 80%;
     height: 80%;
+} */
+@media only screen and (max-width:576px){
+    .child-left{
+        width: 100%;
+    }
 }
+
+.glow-on-hover {
+    width: 130px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: rgb(182, 13, 145);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: rgb(247, 217, 217)
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(201, 24, 24, 0.623);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+/* .btn-three {
+    color: #FFF;
+    transition: all 0.5s;
+    position: relative;
+  }
+  .btn-three::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s;
+  }
+  .btn-three:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+  }
+  .btn-three::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.5);
+    transform: scale(1.2,1.2);
+  }
+  .btn-three:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+  } */

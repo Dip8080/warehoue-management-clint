@@ -4,6 +4,10 @@
     grid-gap: 12px;
 }
 
+.card-container{
+    /* background: #ecf0f3; */
+  box-shadow: 6px 6px 8px #cbced1, -4px -4px 8px white;
+}
 
 /* resposnive */
 
