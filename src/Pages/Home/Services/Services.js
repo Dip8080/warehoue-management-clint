@@ -24,7 +24,7 @@ const SingleService = (props)=>{
     const {name , quantity , supplier , price , img ,description,_id} = props.obj;
     const nevigate = useNavigate();
     const nevigaHandle=id=>{
-        nevigate(`/service/${id}`)
+        nevigate(`/inventory/${id}`)
     }
     return (
 

@@ -1,7 +1,18 @@
 .product_parent{
     box-shadow: 6px 6px 8px #cbced1, -4px -4px 8px white;  
-    padding : 20px
+    padding : 20px;
+    width:40%;
 }
 .product_parent img {
     width: 30%;
+}
+.right_input{
+    width: 50%;
+}
+
+@media only screen and (max-width:576px){
+    .product-grand-parent{
+        display:grid ;
+        grid-template-columns: repeat(1,1fr);
+    }
 }

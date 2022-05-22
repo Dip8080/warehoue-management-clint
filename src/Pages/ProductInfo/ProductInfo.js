@@ -19,30 +19,37 @@ const ProductInfo = () => {
     
     return (
         <>
-        <div className='container w-50 ms-auto product_parent'>
-            <h1>Product details</h1>
+        <h1 className='container text-center p-3 my-2 rounded bg-info'>item id : {product._id}</h1>
+        <div className='container d-flex justify-content-center product-grand-parent'>
+            
+        <div className='product_parent p-3'>
+            <h1>Product details :</h1>
             <div className='front'>
                <img src={product.img} alt="" />
             </div>
             <div className='back'>
             <h2>{product.name}</h2>
            
-            <p>price  : {product.price}</p>
+            <p>price  : {product.price}/kg</p>
+            <p>quantity: {product.quantity}kg</p>
             <p>supplier : {product.supplier}</p>
             <p>description : {product.description}</p>
+            <button className='btn rounded-pill bg-success my-2'>Delivered</button>
             </div>
-            <button onClick={handleNevigate}>manage inventory</button>
+            
+        </div>
+        <div className='p-3 '>
+            <h1>restock the items</h1>
+                <input className='form-control' type="number" placeholder='enter number to restock' /><br />
+                <input className='btn border bg-danger' type="button" value="restock" />
+
         </div>
        
-        {/* <div class="flip">
-    <div class="front" style="background-image: url(https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)">
-       <h1 class="text-shadow">LAKE</hi>
-    </div>
-    <div class="back">
-       <h2>Angular</h2>
-       <p>Good tools make application development quicker and easier to maintain than if you did everything by hand..</p>
-    </div>
-</div> */}
+        
+</div>
+<div className='d-flex justify-content-center'>
+<button className='btn px-4 my-4 bg-info rounded ' onClick={handleNevigate}>manage inventory</button>
+</div>
         </>
     );
 };
