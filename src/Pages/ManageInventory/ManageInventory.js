@@ -37,18 +37,34 @@ const ManageInventory = () => {
 };
 
 const ManageTable = (props)=>{
-    const handleDelete = ()=>{
-        confirm('are you sure ?')
+    const [items,setItems] = UseServices([]);
+    // delete function
+    const handleDelete = (id)=>{
+       
+         const procced = window.confirm('are you sure');
+         if(procced){
+            const url =`http://localhost:5000/fruits/${id}`;
+            fetch(url,{
+                method : 'DELETE'
+
+            })
+            .then(res=>res.json())
+            // to delete the item from UI
+            .then(data=>{
+                const remaining = items.filter(x=>x._id !== id);
+                setItems(remaining);
+            })
+         }
     }
     
-    const {name , quantity, price , img} = props.obj;
+    const {name , quantity, price , img , _id} = props.obj;
     return(
         <tr className='border px-2' >
         <th scope="row border">{name}</th>
         <td>{price}</td>
         
         <td>{quantity}</td>
-        <button className='btn' onClick={handleDelete}><td><AiTwotoneDelete></AiTwotoneDelete></td></button>
+        <button className='btn' onClick={()=>handleDelete(_id)}><td><AiTwotoneDelete></AiTwotoneDelete></td></button>
       </tr>
     )
 }

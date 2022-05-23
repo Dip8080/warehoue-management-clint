@@ -16,6 +16,22 @@ const ProductInfo = () => {
     const handleNevigate = ()=>{
         nevigate('/manage')
     }
+    // update product
+    const handleUpdate = ()=>{
+        const quantity =parseInt(product.quantity);
+        const updatedQuantity = quantity-1;
+        const newQuantity = {updatedQuantity};
+        const url = `http://localhost:5000/fruits/${userId}`;
+        fetch(url,{
+            method : 'PUT',
+            headers: {
+                'Content-Type' : 'application/json'
+                },
+                body:JSON.stringify(newQuantity)
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
+    }
     
     return (
         <>
@@ -34,7 +50,7 @@ const ProductInfo = () => {
             <p>quantity: {product.quantity}kg</p>
             <p>supplier : {product.supplier}</p>
             <p>description : {product.description}</p>
-            <button className='btn rounded-pill bg-success my-2'>Delivered</button>
+            <button onClick={handleUpdate} className='btn rounded-pill bg-success my-2'>Delivered</button>
             </div>
             
         </div>
