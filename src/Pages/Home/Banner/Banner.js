@@ -1,14 +1,24 @@
 import React from 'react';
 import './Banner.css'
 
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 const Banner = () => {
+    const uselessBtn = ()=>{
+        toast('this is useless button. click as hard as u can')
+    }
     return (
         <div className='parent_banner container'>
             <div className="child-left" style={{padding:"20px"}}>
-                <h1>this is a tag line <br /><span style={{color:"green",marginTop:"8px"}}>chatch phrase</span></h1>
-                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio exercitationem a eos? Omnis consequatur ipsa hic cum corporis quae dolorum magni vitae, quaerat rerum perferendis expedita temporibus. Beatae, soluta atque. </p>
+                <h1>Experience some exotic fruit <br /><span style={{color:"green",marginTop:"8px"}}>full fresh </span></h1>
+                <p> this is a meaningful line for this exotic fruit page 
+                    may be when i have time i will write somethig meaningful
+                    about this website </p>
                 <div>
-                    <button className='btn-three glow-on-hover'>button one</button>
+                    <button onClick={uselessBtn} className='btn-three glow-on-hover'>button one</button>
+                    <ToastContainer />
                    
                     
                     </div>

@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -20,7 +21,7 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
-
+ 
     //   google authentication
     
     const provider = new GoogleAuthProvider()
@@ -40,15 +41,17 @@ const Login = () => {
         signInWithEmailAndPassword(email,password)
     }
     //will redirect from where i came.
+   
     if(user){
         nevigate(from, { replace: true });
     }
-  
+   
 
     
     const nevigateRegister = event =>{
         nevigate('/register')
     }
+      
     return (
         <>
       <h1 className='text-center'>Please Log in</h1>

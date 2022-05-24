@@ -1,6 +1,9 @@
 import './ProductInfo.css'
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductInfo = () => {
     const {userId} =useParams();
@@ -18,6 +21,7 @@ const ProductInfo = () => {
     }
     // update product
     const handleUpdate = ()=>{
+        
         const quantity =parseInt(product.quantity);
         const updatedQuantity = quantity-1;
         const newQuantity = {updatedQuantity};
@@ -30,7 +34,13 @@ const ProductInfo = () => {
                 body:JSON.stringify(newQuantity)
         })
         .then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+            toast('product deleivered')
+            
+        })
+    }
+    const handleRestock =()=>{
+        toast('successfully restocked')
     }
     
     return (
@@ -51,13 +61,15 @@ const ProductInfo = () => {
             <p>supplier : {product.supplier}</p>
             <p>description : {product.description}</p>
             <button onClick={handleUpdate} className='btn rounded-pill bg-success my-2'>Delivered</button>
+            <ToastContainer />
             </div>
             
         </div>
         <div className='p-3 '>
             <h1>restock the items</h1>
                 <input className='form-control' type="number" placeholder='enter number to restock' /><br />
-                <input className='btn border bg-danger' type="button" value="restock" />
+                <input onClick={handleRestock} className='btn border bg-danger' type="button" value="restock" />
+                <ToastContainer />
 
         </div>
        

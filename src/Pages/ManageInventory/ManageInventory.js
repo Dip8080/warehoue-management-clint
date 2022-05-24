@@ -2,9 +2,12 @@ import React, { useEffect } from 'react';
 import {AiTwotoneDelete} from 'react-icons/ai'
 import UseServices from '../Hooks/UseServices';
 import {useNavigate} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const ManageInventory = () => {
-    const [items] = UseServices([]);
+    const [items,setItems] = UseServices([]);
     const nevigate = useNavigate();
     const handleNevigate=()=>{
         nevigate('/additem')
@@ -29,6 +32,7 @@ const ManageInventory = () => {
             </table>
             <div className='d-flex justify-content-center '>
             <button className='my-4 btn rounded bg-info' onClick={handleNevigate}>add items</button>
+            
             </div>
         </div>
        
@@ -53,6 +57,7 @@ const ManageTable = (props)=>{
             .then(data=>{
                 const remaining = items.filter(x=>x._id !== id);
                 setItems(remaining);
+                toast('item deleted, please reload the page')
             })
          }
     }
@@ -65,6 +70,7 @@ const ManageTable = (props)=>{
         
         <td>{quantity}</td>
         <button className='btn' onClick={()=>handleDelete(_id)}><td><AiTwotoneDelete></AiTwotoneDelete></td></button>
+        <ToastContainer/>
       </tr>
     )
 }
