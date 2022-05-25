@@ -8,6 +8,7 @@ import auth from '../../firebase.init';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import Loading from '../Loading/Loading';
 
+
 const Login = () => {
     const emailRef = useRef('');
     const passRef = useRef('');
@@ -46,6 +47,7 @@ const Login = () => {
         nevigate(from, { replace: true });
     }
    
+   
 
     
     const nevigateRegister = event =>{
@@ -74,6 +76,7 @@ const Login = () => {
   <Button className="button_submit" variant="primary" type="submit">
     Submit
   </Button>
+  <ToastContainer></ToastContainer>
   <p  className=' w-50 my-4'>new here ? <span className='bg-danger button_submit' onClick={nevigateRegister}>please register</span></p>
   <button className='button_submit my-3'  onClick={handleGoogle}>sign in with google</button>
 </Form>

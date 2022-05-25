@@ -3,6 +3,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../Loading/Loading';
 
 const Registration = () => {
     const [
@@ -23,11 +27,16 @@ const Registration = () => {
         console.log(name,email,pass)
         createUserWithEmailAndPassword(email, pass)
     }
+    if(loading){
+        return <Loading></Loading>
+    }
     if(user){
         nevigate('/')
+      
     }
     const nevigateLogin = () =>{
         nevigate('/login')
+       
     }
     return (
         <div>
